@@ -2,11 +2,14 @@
 
 set -e
 
-echo "Updating system..."
-apt update
+echo "Downloading ttyd..."
 
-echo "Installing ttyd..."
-apt install -y ttyd bash
+wget https://github.com/tsl0922/ttyd/releases/download/1.7.7/ttyd.x86_64 -O ttyd
 
-echo "Starting ttyd web terminal..."
-ttyd -p $PORT bash
+chmod +x ttyd
+
+PORT=${PORT:-8080}
+
+echo "Starting ttyd on port $PORT"
+
+./ttyd -p $PORT bash
