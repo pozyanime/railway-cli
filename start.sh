@@ -2,6 +2,10 @@
 
 set -e
 
+echo "Installing curl..."
+
+apt update && apt install -y curl
+
 echo "Downloading ttyd..."
 
 curl -L https://github.com/tsl0922/ttyd/releases/download/1.7.7/ttyd.x86_64 -o ttyd
